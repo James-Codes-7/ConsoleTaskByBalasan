@@ -2,12 +2,10 @@ package interviewpanal.controler;
 
 import interviewpanal.model.Candidate;
 import interviewpanal.model.CandidateDatabase;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InterviewControl {
-
     private static InterviewControl interviewControl;
     private Candidate candidate;
     private final Scanner scanner = new Scanner(System.in);
@@ -35,15 +33,15 @@ public class InterviewControl {
                 scanner.next();
             }
         }
-        System.out.println("Completed");
+        System.out.println("Completed\n");
     }
     private void callCandidate() {
         candidate = candidateDatabase.getCandidateQueue().poll();
         System.out.println("\nCandidate Name:          " + candidate.getCandidateName());
         System.out.println("Candidate DOB:           " + candidate.getCandidateDOB());
         System.out.println("Candidate Gender:        " + candidate.getCandidateGender());
-        System.out.println("Candidate Qualification: " + candidate.getCandidateQualification());
-        if(!candidateDatabase.getCandidateWaitingQueue().isEmpty())
+        System.out.println("Candidate Qualification: " + candidate.getCandidateQualification() + "\n");
+        if (!candidateDatabase.getCandidateWaitingQueue().isEmpty())
             candidateDatabase.setCandidateQueue(candidateDatabase.getCandidateWaitingQueue().poll());
     }
     private InterviewControl() {
