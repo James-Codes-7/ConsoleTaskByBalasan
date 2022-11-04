@@ -27,18 +27,16 @@ public class FileCopy {
         ArrayList<File> fileArrayList = new ArrayList<>(Arrays.asList(files));
         for (index = 0; index < fileListSize; index++) {
             fileSizeQueue.add((int) (files[index].length()));
-            System.out.println(files[index].getName());
-            System.out.println(files[index].length());
         }
         System.out.println(fileSizeQueue);
-           while (!fileSizeQueue.isEmpty())
-           {
+        while (!fileSizeQueue.isEmpty()) {
             for (index = 0; index < fileArrayList.size(); index++) {
                 tempCheckSize = (int) fileArrayList.get(index).length();
                 if (tempCheckSize == fileSizeQueue.peek()) {
                     try {
                         fileReader = new FileReader(fileArrayList.get(index));
                         bufferedReader = new BufferedReader(fileReader);
+                        System.out.println(tempCheckSize);
                         writeFile = new File("C:\\Users\\HP\\IdeaProjects\\createfile\\" + fileArrayList.get(index).getName());
                         writeFile.createNewFile();
                         fileWriter = new FileWriter(writeFile);
@@ -47,7 +45,7 @@ public class FileCopy {
                         line = bufferedReader.readLine();
                         while (line != null) {
                             System.out.print(line + "\n");
-                            fileCopy += (line+"\n");
+                            fileCopy += (line + "\n");
                             line = bufferedReader.readLine();
                         }
                         bufferedWriter.write(fileCopy);
