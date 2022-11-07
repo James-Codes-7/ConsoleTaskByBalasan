@@ -8,6 +8,7 @@ public class ShowAPIResponseInSwing {
     public void swingView(ArrayList<Customer> customersList)
     {
         JFrame jFrame = new JFrame();
+         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JList jList=null;
         JPanel jPanel=new JPanel();
        int size = customersList.size(),i=0;
